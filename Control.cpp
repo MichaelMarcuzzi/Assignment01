@@ -1,6 +1,7 @@
-/*  Assigment01  */
+/*  Assignment01  */
 
 #include "Control.h"
+#include "CLI.h"
 
 Control::Control(){
     
@@ -9,30 +10,55 @@ Control::Control(){
 
 void Control::launch(int argc, char* argv[]){
 
-    if (argc != 2){
-        //call error when text implemented
+    if (argc < 2){
+        cout << endl << "Type Option:" << endl;
+        cout << "-c Command Line Interface" << endl;
+        cout << "-u User Interface" << endl;
+        cout << "[Option] + filename Preload scripts" << endl;
+        cout << endl;
         return;
+    }else if(argc == 2){
+        string option(argv[1]);
+
+        if(option == "-c"){
+           processCLI(); 
+        }else if(option == "-u"){
+           processUI(); 
+        }else{
+            cout << endl << "Type Option:" << endl;
+            cout << "-c Command Line Interface" << endl;
+            cout << "-u User Interface" << endl;
+            cout << "[Option] + filename Preload scripts" << endl;
+            cout << endl;
+            return;
+        }
+    }else if(argc == 3){
+        string option(argv[1]);
+        string file(argv[2]);
+            
+        if(option == "-c"){
+           processCLI(file); 
+        }else if(option == "-u"){
+           processUI(file); 
+        }else{
+            cout << endl << "Type Option:" << endl;
+            cout << "-c Command Line Interface" << endl;
+            cout << "-u User Interface" << endl;
+            cout << "[Option] + filename Preload scripts" << endl;
+            cout << endl;
+            return;
+        }
+
     }
     
-    string option(argv[1]);
-
-    if(option == "-c"){
-       processCli(); 
-    }else if(option == "-u"){
-       processUi(); 
-    }else{
-        //call error when text implemented
-        return;
-    }
+    
 }
 
-void Control::processCli(){
-
-
-
+void Control::processCLI(string file){
+    cout << "CLI: " << file << endl; 
 }
 
-void Control::processUi(){
-
+void Control::processUI(string file){
+    cout << "UI: " << file << endl; 
 
 }

@@ -1,10 +1,11 @@
-/* Assignment01  */
+/*  Assignment01  */
 
 #ifndef CONTROL_H
 #define CONTROL_H
 
 /* includes  */
 #include <string>
+#include <iostream>
 using namespace std;
 
 class Control{
@@ -14,9 +15,8 @@ class Control{
         void launch(int, char*[]); 
 
     private:
-        void processCli();
-        void processUi();
-
+        void processCLI(string f= "");
+        void processUI(string f = "");
 };
 
 #endif
