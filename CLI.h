@@ -5,6 +5,7 @@
 
 #include <string>
 #include <iostream>
+#include "Command.h"
 using namespace std;
 
 class CLI
@@ -14,7 +15,7 @@ class CLI
         CLI(string);
         void repl();
     private:
-        string parseCMD(string);
+        Command parseCMD(string);
         string file;
 };
 

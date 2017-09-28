@@ -2,6 +2,8 @@
 
 #include "Command.h"
 
+Command::Command(){
+}
 
 Command::Command(string cmd){
     this->cmd = cmd;    
@@ -20,5 +22,13 @@ string Command::cmdType(){
 }
 string Command::optionAt(int pos){
     return options[pos];
+
+}
+void Command::cmdType(string command){
+    cmd = command;
+
+}
+void Command::optionAt(int pos,string op){
+    options[pos]= op;
 
 }
