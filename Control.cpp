@@ -9,13 +9,11 @@ Control::Control(){
 }
 
 void Control::launch(int argc, char* argv[]){
+    
+    string errorMsg = "\nType Option:\n-c CommandLine Interface\n-u User Interface\n[-Option] + filename Preload Scripts\n\n";
 
-    if (argc < 2){
-        cout << endl << "Type Option:" << endl;
-        cout << "-c Command Line Interface" << endl;
-        cout << "-u User Interface" << endl;
-        cout << "[Option] + filename Preload scripts" << endl;
-        cout << endl;
+    if (argc < 2 || argc > 3){
+        cout << errorMsg;
         return;
     }else if(argc == 2){
         string option(argv[1]);
@@ -25,12 +23,8 @@ void Control::launch(int argc, char* argv[]){
         }else if(option == "-u"){
            processUI(); 
         }else{
-            cout << endl << "Type Option:" << endl;
-            cout << "-c Command Line Interface" << endl;
-            cout << "-u User Interface" << endl;
-            cout << "[Option] + filename Preload scripts" << endl;
-            cout << endl;
-            return;
+           cout << errorMsg;
+           return;
         }
     }else if(argc == 3){
         string option(argv[1]);
@@ -41,21 +35,18 @@ void Control::launch(int argc, char* argv[]){
         }else if(option == "-u"){
            processUI(file); 
         }else{
-            cout << endl << "Type Option:" << endl;
-            cout << "-c Command Line Interface" << endl;
-            cout << "-u User Interface" << endl;
-            cout << "[Option] + filename Preload scripts" << endl;
-            cout << endl;
-            return;
+           cout << errorMsg;
+           return;
         }
 
     }
-    
     
 }
 
 void Control::processCLI(string file){
     cout << "CLI: " << file << endl; 
+    CLI menu;
+    menu.repl();
 }
 
 void Control::processUI(string file){
