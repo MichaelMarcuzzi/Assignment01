@@ -90,10 +90,10 @@ void UI::addUser() // add user
 }
 
 
-void UI::promptForInt(string prompt, int& num) // used from CUShop
+void UI::promptForInt(string p, int& n) // used from CUShop
 {
-  cout << prompt << ": ";
-  num = readInt();
+  cout << p << ": ";
+  n = readInt();
 }
 
 int UI::readInt() // reads int input
